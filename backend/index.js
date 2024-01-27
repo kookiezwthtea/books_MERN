@@ -15,7 +15,7 @@ app.use(cors());
 // Option 2: Allow Custom Origins
 app.use(
   cors({
-    origin: 'https://books-mern-client.vercel.app/',
+    origin: 'https://books-mern-client.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
   })
