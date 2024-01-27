@@ -10,19 +10,16 @@ const app = express();
 app.use(express.json());
 
 // Middleware for handling CORS POLICY
-// Option 1: Allow All Origins with Default of cors(*)
-//app.use(cors());
-
-// Option 2: Allow Custom Origins
 app.use(
   cors({
-    origin: '*',
+    origin: (origin, callback) => {
+      // Allow all origins
+      callback(null, true);
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
   })
 );
-
-
 
 app.get('/', (request, response) => {
   console.log(request);
@@ -34,7 +31,7 @@ app.use('/books', booksRoute);
 mongoose
   .connect(mongoDBURL)
   .then(() => {
-    console.log('App connected to database');
+    console.log('App connected to the database');
     app.listen(PORT, () => {
       console.log(`App is listening to port: ${PORT}`);
     });
@@ -42,5 +39,3 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
-
-  
