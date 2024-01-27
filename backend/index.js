@@ -15,11 +15,13 @@ app.use(cors());
 // Option 2: Allow Custom Origins
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://books-mern-client.vercel.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type'],
   })
 );
+
+
 
 app.get('/', (request, response) => {
   console.log(request);
