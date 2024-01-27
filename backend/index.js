@@ -26,7 +26,7 @@ app.use(
 
 app.get('/', (request, response) => {
   console.log(request);
-  return response.status(234).send('Welcome To MERN Stack Tutorial');
+  return response.status(234).send('My Books');
 });
 
 app.use('/books', booksRoute);
